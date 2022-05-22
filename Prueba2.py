@@ -87,5 +87,9 @@ elif menu == 3 :
 elif menu == 4 :
     Despachos()
 else :
+<<<<<<< HEAD
     Incorrecto()
 
+=======
+    print ("opción incorrecta")
+>>>>>>> 46483933b6594607a166ffd1f8b3f35349395d02
