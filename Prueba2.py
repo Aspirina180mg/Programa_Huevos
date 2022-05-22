@@ -12,21 +12,7 @@
 #        c. Listar huevos
 #        d. Listar despachos
 
-print ("\nMenú All Eggs\n\n--------------\n\n1)Asignación de precios de huevos\n\n2)Creación de despachos\n")
-print ("\n3)Listar huevos\n\n4)Listar despachos\n")
 
-menu = int (input ("» "))
-print ("")
-if menu == 1 :
-    print ("Asignación de precios de Huevos")
-elif menu == 2 :
-    print("Creación de despachos")
-elif menu == 3 :
-    print ("Listar huevos")
-elif menu == 4 :
-    print ("Listar despachos")
-else :
-    print ("opción incorrecta")
 
 #    4- Asignación de precios de los tipos de huevos: El usuario administrador del sistema, podrá asignar los precios 
 #       de cada uno de los huevos. 
@@ -62,3 +48,29 @@ else :
 #    6- Listar Huevos: el usuario autentificado, podrá ver todos los huevos disponibles, con sus respectivos precios 
 #       unitarios.
 #    7- Listar despachos: el usuario autentificado, podrá listar todos los despachos registrados en el sistema.
+user_ = "admin"
+pwd_= "1234"
+print ("bienvenido ingrese sus datos para iniciar sesion")
+print ("ingrese usuario: ")
+user = input ()
+print ("ingrese la contraseña: ")
+pwd = input ()
+if user == user_ and pwd == pwd_:
+    print ("bienvenidos")
+else :
+    print ("usuario o contraseña invalido")
+print ("\nMenú All Eggs\n\n--------------\n\n1)Asignación de precios de huevos\n\n2)Creación de despachos\n")
+print ("\n3)Listar huevos\n\n4)Listar despachos\n")
+
+menu = int (input ("» "))
+print ("")
+if menu == 1 :
+    print ("Asignación de precios de Huevos")
+elif menu == 2 :
+    print("Creación de despachos")
+elif menu == 3 :
+    print ("Listar huevos")
+elif menu == 4 :
+    print ("Listar despachos")
+else :
+    print ("opción incorrecta")
