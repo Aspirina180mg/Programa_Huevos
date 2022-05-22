@@ -47,5 +47,26 @@
 #    7- Listar despachos: el usuario autentificado, podrá listar todos los despachos registrados en el sistema.
 
 
-print("Hola Mundo")
-print("Hola Mundo2")
+
+
+
+
+
+
+
+
+
+
+
+
+user_ = "admin"
+pwd_= "1234"
+print ("bienvenido ingrese sus datos para iniciar sesion")
+print ("ingrese usuario: ")
+user = input ()
+print ("ingrese la contraseña: ")
+pwd = input ()
+if user == user_ and pwd == pwd_:
+    print ("bienvenidos")
+else :
+    print ("usuario o contraseña invalido")
