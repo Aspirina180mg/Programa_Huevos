@@ -83,8 +83,8 @@ def listar ():       #funcion para listar los valores de los huevos
 
 def despachos ():        #funcion relacionada con el punto 7 del ejercicio
     limpiar ()
-    ID=input("Por favor ingrese ID que desea consultar en detalle")
-    print(Despachos(ID))
+#    ID=input("Por favor ingrese ID que desea consultar en detalle")
+#    print(Despachos(ID))
     print ("Listar despachos")
     esperar()
     menu ()
@@ -100,13 +100,13 @@ user_ = "admin"     #usuario esperado
 pwd_ = "1234"       #contraseña esperada
 i = 0     #contador usado para el menu
 
-#print ("Bienvenido, ingrese sus datos para iniciar sesion\n")
+print ("Bienvenido, ingrese sus datos para iniciar sesion\n")
 while 0 == 0:
-#    user = input ("ingrese usuario: "); pwd = input ("ingrese la contraseña: ")       #se pide usuario y contraseña
-#    if user == user_ and pwd == pwd_:
+    user = input ("ingrese usuario: "); pwd = input ("ingrese la contraseña: ")       #se pide usuario y contraseña
+    if user == user_ and pwd == pwd_:
         menu (); break
-#    else :
-#        print ("\nusuario o contraseña invalido\nintento Numerno", i+1 , "de 3"); i += 1        #aumenta contador
-#        esperar(); limpiar ()
-#        if i == 3 :
-#            print ("Ha fallado 3 veces el inicio de sesion, se cerrara el programa"); esperar(); break
+    else :
+        print ("\nusuario o contraseña invalido\nintento Numerno", i+1 , "de 3"); i += 1        #aumenta contador
+        esperar(); limpiar ()
+        if i == 3 :
+            print ("Ha fallado 3 veces el inicio de sesion, se cerrara el programa"); esperar(); break
