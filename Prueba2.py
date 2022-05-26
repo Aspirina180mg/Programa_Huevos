@@ -64,7 +64,9 @@ def menu ():
 
 def asignacion ():       #funcion relacionada con el punto 4 del ejercicio
     limpiar ()
+    
     print ("Asignacion de precios")
+    
     esperar()
     menu ()
 
@@ -79,7 +81,6 @@ def listar ():       #funcion para listar los valores de los huevos
     print ("Huevos de Gallina:  $", valores [0], "\nHuevos de Pato:     $",valores [1], "\nHuevos de Codorniz: $", valores [2], "\nHuevos de Avestruz: $", valores[3])
     esperar()
     menu ()
-
 
 def despachos ():        #funcion relacionada con el punto 7 del ejercicio
     limpiar ()
@@ -98,7 +99,6 @@ def incorrecto ():       #funcion que se realizara al ingresar una opcion no val
 valores = [50, 150, 50, 800] #gallina, pato, codorniz, avestruz
 user_ = "admin"     #usuario esperado
 pwd_ = "1234"       #contraseña esperada
-i = 0     #contador usado para el menu
 
 print ("Bienvenido, ingrese sus datos para iniciar sesion\n")
 while 0 == 0:
