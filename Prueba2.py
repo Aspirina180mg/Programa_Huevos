@@ -99,7 +99,7 @@ def incorrecto ():       #funcion que se realizara al ingresar una opcion no val
 valores = [50, 150, 50, 800] #gallina, pato, codorniz, avestruz
 user_ = "admin"     #usuario esperado
 pwd_ = "1234"       #contraseña esperada
-
+i=0
 print ("Bienvenido, ingrese sus datos para iniciar sesion\n")
 while 0 == 0:
     user = input ("ingrese usuario: "); pwd = input ("ingrese la contraseña: ")       #se pide usuario y contraseña
