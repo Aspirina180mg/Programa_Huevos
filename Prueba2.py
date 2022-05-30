@@ -1,9 +1,10 @@
 '''
 Creado por 
 Misael Garcia   18.992.359-7
-Felipe Rojas    
+Felipe Rojas    18.899.270-6
 Estudiantes de Ingenieria en Informatica 
 Ramo de Estructuras de datos y algoritmos
+Profesor David Villegas
 generacion 2022 horario vespertino
 '''
 import os
