@@ -1,8 +1,8 @@
 '''
-Creado por 
+Creado por
 Misael Garcia   18.992.359-7
 Felipe Rojas    18.899.270-6
-Estudiantes de Ingenieria en Informatica 
+Estudiantes de Ingenieria en Informatica
 Ramo de Estructuras de datos y algoritmos
 Profesor David Villegas
 generacion 2022 horario vespertino
@@ -32,10 +32,25 @@ def menu ():        #funcion para la navegacion del menu, llamara las funciones 
         incorrecto ()
 
 def asignacion ():       #funcion para asignar valores distintos a los iniciales
+    global valores
     limpiar ()
-    
-    print ("Asignacion de precios")
-    
+    navegacion = input ("elija el tipo de huevo al que le modificará el precio\n1) Gallina\n\
+2)Pato\n3) Codorniz\n4) Avestruz\n>")
+    precio = input ("ingrese el nuevo valor\n>")
+    if navegacion == 1:
+        if precio < 50:
+            print("El precio del huevo de gallina debe ser mayor a 50")
+    elif navegacion == 2:
+        if precio < 150:
+            print("El precio del huevo de pato debe ser mayor a 150")
+    elif navegacion == 3:
+        if precio < 50:
+            print("El precio del huevo de codorniz debe ser mayor a 50")
+    elif navegacion == 4:
+        if precio < 800:
+            print("El precio del huevo de avestrúz debe ser mayor a 800")
+    else:
+        print ("Esa no es una opcion valida")
     esperar()
     menu ()
 
@@ -120,7 +135,10 @@ def listar_despachos ():        #funcion para listar los despachos registrados
         print ("Rut:              ", lista[0])
         print ("Nombre:           ", lista[1])
         print ("Tipo de Huevo:    ", lista[2])
-        print ("Posee convenio:   ", lista[3])
+        if lista[3] == 1:
+            print ("Posee convenio:    si")
+        else:
+            print ("Posee convenio:    no")
         print ("Direccion:        ", lista[4])
         print ("cantidad enviada: ", lista[5])
         print ("valor unitario:   ", lista[6])
@@ -145,7 +163,7 @@ user_ = "admin"     #usuario esperado
 pwd_ = "1234"       #contraseña esperada
 i = 0       #variable para navegación en menú
 ID = 101        #Identificador de Despacho
-lista = ["18992359-7", "Misael Garcia", "Gallina", "convenio", "avenida siempre viva 2785", 200, 45]
+lista = ["18992359-7", "Misael Garcia", "Gallina", "convenio", "Avenida siempre viva 2785", 200, 45]
 despachos = {100:lista}     #primer valor preasignado
 lista = ["18264014-k", "Felipe Rojas", "Avestruz", "sin convenio", "Avenida siempre viva 2350", 100, 800]
 despachos[101] = lista      #segundo valor preasignado
