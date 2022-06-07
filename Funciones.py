@@ -1,9 +1,3 @@
-'''
-Misael Garcia   18.992.359-7
-Felipe Rojas    18.899.270-6
-Estudiantes de Ingenieria en Informatica, generacion 2022 horario vespertino
-Ramo de estructuras de datos y algoritmos, profesor David Villegas
-'''
 import os
 def limpiar (): os.system ("cls" if os.name == "nt" else "clear")       #funcion para limpiar pantalla, funciona en windows o linux
 def esperar (): input ("\nPulse Enter para continuar...")       #funcion de espera, requiere una entrada
@@ -79,38 +73,8 @@ def incorrecto ():       #funcion que se realizara al ingresar una opcion no val
 
 valores = [50, 150, 50, 800]        #gallina, pato, codorniz, avestruz
 huevos = ["gallina","pato","codorniz","avestruz"]
-i = 0       #variable para navegación en menú
 ID = 101        #Identificador de Despacho
 lista = ["18992359-7", "Misael Garcia", "Gallina", "si", "Avenida siempre viva 2785", 200, 45, 9000]
 despachos = {100:lista}     #primer valor preasignado
 lista = ["18899270-6", "Felipe Rojas", "Avestruz", "no", "Avenida siempre viva 2350", 100, 800, 80000]
 despachos [101] = lista      #segundo valor preasignado
-entrada = None
-while 0 == 0:
-    if entrada != 1:
-        user = input ("Login\n\nSi falla 3 veces, este programa se cerrara\n\ningrese usuario: ")
-        pwd = input ("ingrese la contraseña: ")       #se pide usuario y contraseña
-    match user:
-        case "admin" if pwd == "1234":
-            if entrada != 1: 
-                print ("\nAcceso concedido")
-                entrada = 1
-            esperar()
-            limpiar ()
-            navegacion = input ("Menú All Eggs\n--------------\n1) Asignación de precios de huevos\n2) Creación de despachos\n3) Listar precios de huevos\n4) Listar despachos\notro)Salir\n>")
-            limpiar ()
-            match navegacion:
-                case "1": asignacion ()
-                case "2": creacion ()
-                case "3": listar ()
-                case "4": listar_despachos ()
-                case   _: incorrecto ()
-            continue
-        case _ if pwd != "1234":
-            print ("\nusuario o contraseña invalido\nintento Numerno", i + 1 , "de 3")
-            i += 1        #aumenta contador
-            if i > 2:
-                limpiar ()
-                print ("Ha fallado 3 veces el inicio de sesion, se cerrara el programa")
-                quit()
-            esperar ()
