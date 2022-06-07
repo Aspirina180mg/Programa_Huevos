@@ -1,3 +1,4 @@
+from database import *
 from Funciones import *
 entrada = None
 i = 0       #variable para navegación en menú
