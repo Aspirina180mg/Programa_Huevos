@@ -1,4 +1,6 @@
-import os
+import os 
+from database import *
+
 def limpiar (): os.system ("cls" if os.name == "nt" else "clear")       #funcion para limpiar pantalla, funciona en windows o linux
 def esperar (): input ("\nPulse Enter para continuar...")       #funcion de espera, requiere una entrada
 
@@ -14,11 +16,14 @@ def asignacion ():       #funcion para asignar valores distintos a los iniciales
         case 2 if precio < 50: print ("El precio del huevo de codorniz debe ser mayor a 50")
         case 3 if precio < 800: print ("El precio del huevo de avestrúz debe ser mayor a 800")
         case _: valores[navegacion] = precio
+    #todo
+    #cursor.execute ('update productos set valor = %s where ID = 1', valores[navegacion])
+    #db.commit()
 
 def creacion ():     #funcion para crear despachos
     global ID       #se permite la modificacion de las variables ID, valores y despachos.
     global despachos
-    ID += 1         
+    ID += 1
     rut = input ("Ingrese RUT\n>")
     nombre = input ("Ingrese Nombre o Razon Social\n>")
     tipo_n = 5       #se apoya en el contador i para realizar el ciclo de tipo de huevos
@@ -71,7 +76,16 @@ def listar_despachos ():        #funcion para listar los despachos registrados
 def incorrecto ():       #funcion que se realizara al ingresar una opcion no valida en el menu
     if input ('para cerrar el programa ingrese la palabra "huevos"\n>') == "huevos": quit ()
 
-valores = [50, 150, 50, 800]        #gallina, pato, codorniz, avestruz
+cursor.execute("select * from productos")
+query = cursor.fetchone()
+val1 = query[2]
+query = cursor.fetchone()
+val2 = query[2]
+query = cursor.fetchone()
+val3 = query[2]
+query = cursor.fetchone()
+val4 = query[2]
+valores = [val1, val2, val3, val4]        #gallina, pato, codorniz, avestruz
 huevos = ["gallina","pato","codorniz","avestruz"]
 ID = 101        #Identificador de Despacho
 lista = ["18992359-7", "Misael Garcia", "Gallina", "si", "Avenida siempre viva 2785", 200, 45, 9000]
