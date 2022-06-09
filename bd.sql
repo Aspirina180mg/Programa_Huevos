@@ -10,8 +10,8 @@ insert into productos (nombre, valor)
 values 
 	('Gallina', '50'), 
 	('Pato', '150'), 
-    ('Codorniz', '50'), 
-    ('Avestruz', '800');
+  ('Codorniz', '50'), 
+  ('Avestruz', '800');
 create table despachos (
 id int not null auto_increment,
 rut varchar(255) not null,
