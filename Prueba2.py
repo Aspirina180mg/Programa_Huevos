@@ -34,7 +34,6 @@ La empresa productora y comercializadora de huevos “All Eggs”, que está en 
         iv.	En caso de tener convenio (Sí), el precio final del despacho tendrá un 10% de descuento.
 6-	Listar Huevos: el usuario autentificado, podrá ver todos los huevos disponibles, con sus respectivos precios unitarios.
 7-	Listar despachos: el usuario autentificado, podrá listar todos los despachos registrados en el sistema, así como también realizar búsqueda por fechas comprometidas.
-
 Requerimientos Adicionales
 1.	Utilizando lenguaje de programación Python, debe crear los menús necesarios para dar solución a la problemática.
 2.	Debe ser validado el ingreso de datos para no interrumpir el flujo del programa.
@@ -49,7 +48,7 @@ Requerimientos Adicionales
         ii.	Buscar por Rut
         iii.	Listar todo
         iv.	Buscar despachos por razón social: Se deberán realizar búsquedas por la proximidad de una razón social existente. Por ejemplo:
-            1.	Si tenemos registrado los despachos con las razones sociales “Comercializadora X” y “Comercio AyB Ltda.” Y yo como usuario busco por “comer”, se deberá listar los despachos de ambas razones sociales porque la palabra “comer” existe en ambas razones sociales.
+        1.	Si tenemos registrado los despachos con las razones sociales “Comercializadora X” y “Comercio AyB Ltda.” Y yo como usuario busco por “comer”, se deberá listar los despachos de ambas razones sociales porque la palabra “comer” existe en ambas razones sociales.
 6.	Creación correcta de variables.
 7.	Modificar los huevos según reglas de negocios establecidas
     a.	Considerar reglas de negocios apoyándose en funciones definidas que Python provee.
