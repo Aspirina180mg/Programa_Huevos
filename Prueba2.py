@@ -7,7 +7,6 @@ La empresa productora y comercializadora de huevos “All Eggs”, que está en 
         b. Creación de despachos
         c. Listar huevos
         d. Listar despachos
-'''
 #   4- Asignación de precios de los tipos de huevos: El usuario administrador del sistema, podrá asignar los precios de cada uno de los huevos. 
 #       a. Reglas para la asignación de precio de los huevos:
 #           i. El precio mínimo de la unidad para los huevos de Gallina es de $50
@@ -35,11 +34,9 @@ La empresa productora y comercializadora de huevos “All Eggs”, que está en 
 #           ii. Los despachos NO SE DEBEN REPETIR (El id no debe estar duplicado) Considere que el id del despacho puede ser un número correlativo (acumulativo) en donde dicho ID será la KEY del diccionario.
 #           iii. La cantidad mínima de huevos a enviar, deberán ser 50 y máximo 10000.
 #           iv. En caso de tener convenio (Sí), el precio final del despacho tendrá un 10% de descuento.
-'''
 #   6- Listar Huevos: el usuario autentificado, podrá ver todos los huevos disponibles, con sus respectivos precios unitarios.
-'''
 #   7- Listar despachos: el usuario autentificado, podrá listar todos los despachos registrados en el sistema.
-
+'''
 import os
 
 def limpiar ():      #funcion para limpiar pantalla, funciona en windows o linux
