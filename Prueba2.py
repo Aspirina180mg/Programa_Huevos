@@ -1,19 +1,4 @@
 '''
-5-	Creación de un despacho: Para generar un despacho, se deben considerar los siguientes datos:
-    a.	Datos a Ingresar:
-        vii.	Fecha Comprometida (corresponde a la fecha en que se deben enviar los huevos)
-7-	Listar despachos: el usuario autentificado, podrá listar todos los despachos registrados en el sistema, así como también realizar búsqueda por fechas comprometidas.
-Requerimientos Adicionales
-5.	Los menús a crear son:
-    d.	Listar despachos con las siguientes sub-opciones:
-        i.	Buscar por Fecha comprometida
-        ii.	Buscar por Rut
-        iii.	Listar todo
-        iv.	Buscar despachos por razón social: Se deberán realizar búsquedas por la proximidad de una razón social existente. Por ejemplo:
-        1.	Si tenemos registrado los despachos con las razones sociales “Comercializadora X” y “Comercio AyB Ltda.” Y yo como usuario busco por “comer”, se deberá listar los despachos de ambas razones sociales porque la palabra “comer” existe en ambas razones sociales.
-'''
-
-'''
 Creado por
 Misael Garcia   18.992.359-7
 Felipe Rojas    18.899.270-6
@@ -30,7 +15,7 @@ def limpiar ():      #funcion para limpiar pantalla, funciona en windows o linux
 
 def esperar ():      #funcion de espera, requiere una entrada
     input ("\nPulse Enter para continuar...")
-
+    
 def menu ():        #funcion para la navegacion del menu, llamara las funciones correspondientes
     limpiar ()
     print ("\nMenú All Eggs\n--------------\n1) Asignación de precios de huevos")
@@ -85,6 +70,14 @@ def asignacion ():       #funcion para asignar valores distintos a los iniciales
     menu ()
 
 def creacion ():     #funcion para crear despachos
+
+    def construir_fecha (d, m, a):
+        d = str(d)
+        m = str(m)
+        a = str(a)
+        fecha = d+"/"+m+"/"+a
+        return fecha
+
     global ID       #se permite la modificacion de las variables ID, valores y despachos.
     global valores
     global despachos
@@ -134,12 +127,47 @@ def creacion ():     #funcion para crear despachos
         else:
             break
     limpiar ()
+    fecha = ""
+    while fecha == "":
+        año = int (input ("ingrese el año con 4 dígitos, debe ser mayor a 2021"))
+        limpiar ()
+        mes = int(input ("ingrese mes como número, debe estar entre 1 y 12"))
+        limpiar ()
+        dia = int(input ("ingrese día como número, debe ser un dia válido para el mes elegido"))
+        if año > 2021:
+            if mes > 0 and mes < 13:
+                match mes:
+                    case 1:
+                        if dia > 0 and dia < 32: fecha = construir_fecha (dia, mes, año)
+                    case 2:
+                        if dia > 0 and dia < 29: fecha = construir_fecha (dia, mes, año)
+                    case 3:
+                        if dia > 0 and dia < 32: fecha = construir_fecha (dia, mes, año)
+                    case 4:
+                        if dia > 0 and dia < 31: fecha = construir_fecha (dia, mes, año)
+                    case 5:
+                        if dia > 0 and dia < 32: fecha = construir_fecha (dia, mes, año)
+                    case 6:
+                        if dia > 0 and dia < 31: fecha = construir_fecha (dia, mes, año)
+                    case 7:
+                        if dia > 0 and dia < 32: fecha = construir_fecha (dia, mes, año)
+                    case 8:
+                        if dia > 0 and dia < 32: fecha = construir_fecha (dia, mes, año)
+                    case 9:
+                        if dia > 0 and dia < 31: fecha = construir_fecha (dia, mes, año)
+                    case 10:
+                        if dia > 0 and dia < 32: fecha = construir_fecha (dia, mes, año)
+                    case 11:
+                        if dia > 0 and dia < 31: fecha = construir_fecha (dia, mes, año)
+                    case 12:
+                        if dia > 0 and dia < 32: fecha = construir_fecha (dia, mes, año)
+    limpiar ()
     valor = 1
     if convenio == 1:       #de existir convenio, se fija el valor a un 90%
         valor = 0.9
     valor = valor * valores [tipo_n] * cantidad      #se calcula el valor total de la carga
     precio_unitario = valor / cantidad        #se almacena tomando en cuenta el convenio o solo el valor del huevo?
-    lista = [rut, nombre, tipo, convenio, direccion, cantidad, precio_unitario, valor]
+    lista = [rut, nombre, tipo, convenio, direccion, cantidad, fecha, precio_unitario, valor]
     despachos [ID] = lista       #se almacenan los datos de la lista en el diccionario
     print ("el registro de despacho se ha realizado correctamente, con el ID ", ID)
     esperar ()
@@ -154,28 +182,93 @@ def listar ():       #funcion para listar los valores de los huevos
 
 def listar_despachos ():        #funcion para listar los despachos registrados
     limpiar ()
-    print ("Los despachos registrados son:\n")
-    for i in despachos.keys ():      #navega a traves de los keys del diccionario
-        print (i)
-    print ()
-    consulta = int (input ("ingrese el numero de despacho que desea consultar\n>"))
-    limpiar ()
-    if consulta in despachos:
-        lista = despachos [consulta]     #se sacan los valores del diccionario, para poder trabajar con la lista
-        print ("Rut:              ", lista [0])
-        print ("Nombre:           ", lista [1])
-        print ("Tipo de Huevo:    ", lista [2])
-        if lista [3] == 1:
-            print ("Posee convenio:    si")
-        else:
-            print ("Posee convenio:    no")
-        print ("Direccion:        ", lista [4])
-        print ("cantidad enviada: ", lista [5])
-        print ("valor unitario:  $", lista [6])
-        print ("valor total:     $", lista [7])
-    else:
+    print ("\nMenú listar despachos\n--------------\n1) Buscar por Fecha\n2) Buscar por Rut\n3) Buscar por Nombre o Razón Social\n4) Listar todo")
+    navegacion = input ("otro)Volver\n>")
+    if navegacion == "1" :      #Buscar por Fecha
+        año = int (input ("ingrese el año a consultar\n"))
         limpiar ()
-        print ("Ese no es un despacho valido")
+        mes = int(input ("ingrese mes a consultar\n"))
+        limpiar ()
+        dia = int(input ("ingrese día a consultar\n"))
+        busqueda = str(dia) + "/" + str(mes) + "/" + str(año)
+        limpiar()
+        contador = 0
+        for i in despachos.keys ():      #navega a traves de los keys del diccionario
+            lista = despachos [i]     #se sacan los valores del diccionario, para poder trabajar con la lista
+            if lista[6] == busqueda:
+                contador += 1
+                print ("Rut:               ", lista [0])
+                print ("Nombre:            ", lista [1])
+                print ("Tipo de Huevo:     ", lista [2])
+                if lista [3] == 1:
+                    print ("Posee convenio:     si")
+                else:
+                    print ("Posee convenio:     no")
+                print ("Direccion:         ", lista [4])
+                print ("cantidad enviada:  ", lista [5])
+                print ("fecha comprometida:", lista [6])
+                print ("valor unitario:   $", lista [7])
+                print ("valor total:      $", lista [8])           
+        if contador == 0:
+            print("No se ha encontrado")
+    elif navegacion == "2" :        #Buscar por Rut
+        busqueda = str (input ("ingrese el rut a consultar\n"))
+        limpiar ()
+        contador = 0
+        for i in despachos.keys ():      #navega a traves de los keys del diccionario
+            lista = despachos [i]     #se sacan los valores del diccionario, para poder trabajar con la lista
+            if lista[0] == busqueda:
+                contador += 1
+                print ("Rut:               ", lista [0])
+                print ("Nombre:            ", lista [1])
+                print ("Tipo de Huevo:     ", lista [2])
+                if lista [3] == 1:
+                    print ("Posee convenio:     si")
+                else:
+                    print ("Posee convenio:     no")
+                print ("Direccion:         ", lista [4])
+                print ("cantidad enviada:  ", lista [5])
+                print ("fecha comprometida:", lista [6])
+                print ("valor unitario:   $", lista [7])
+                print ("valor total:      $", lista [8])           
+        if contador == 0:
+            print("No se ha encontrado")
+    elif navegacion == "3" :        #Buscar por Nombre o Razón Social
+        busqueda = str (input ("ingrese palabra a buscar en nombre o razón social (recuerde que se diferencia de mayúsculas y minúsculas)\n"))
+        limpiar ()
+        contador = 0
+        for i in despachos.keys ():      #navega a traves de los keys del diccionario
+            lista = despachos [i]     #se sacan los valores del diccionario, para poder trabajar con la lista
+            if busqueda in lista[1]:
+                contador += 1
+                print ("Rut:               ", lista [0])
+                print ("Nombre:            ", lista [1])
+                print ("Tipo de Huevo:     ", lista [2])
+                if lista [3] == 1:
+                    print ("Posee convenio:     si")
+                else:
+                    print ("Posee convenio:     no")
+                print ("Direccion:         ", lista [4])
+                print ("cantidad enviada:  ", lista [5])
+                print ("fecha comprometida:", lista [6])
+                print ("valor unitario:   $", lista [7])
+                print ("valor total:      $", lista [8])           
+        if contador == 0:
+            print("No se ha encontrado")
+    elif navegacion == "4" :        #Listar Todo
+        print ("Los despachos registrados son:\n")
+        for i in despachos.keys ():      #navega a traves de los keys del diccionario
+            consulta = int (i)
+            lista = despachos [consulta]     #se sacan los valores del diccionario, para poder trabajar con la lista
+            if lista [3] == 1:
+                convenio = "Posee convenio: si"
+            else:
+                convenio = "Posee convenio: no"
+            print ("ID: ",i ,", Rut: ", lista [0], ", Nombre: ", lista [1], ", Tipo de Huevo: " , lista [2], ",")
+            print (convenio, ", Direccion: ", lista [4], ", Cantidad enviada: ", lista [5], ",")
+            print ("Fecha comprometida: ", lista [6], ", Valor unitario: $", lista [7], ", Valor total: $", lista [8], "\n")
+    else :
+        print ("volviendo al Menú...")
     esperar ()
     menu ()
 
@@ -193,11 +286,10 @@ user_ = "admin"     #usuario esperado
 pwd_ = "1234"       #contraseña esperada
 i = 0       #variable para navegación en menú
 ID = 101        #Identificador de Despacho
-lista = ["18992359-7", "Misael Garcia", "Gallina", "si", "Avenida siempre viva 2785", 200, 45, 9000]
+lista = ["18992359-7", "Misael Garcia", "Gallina", "si", "Avenida siempre viva 2785", 200, "22/1/2022", 45, 9000]
 despachos = {100:lista}     #primer valor preasignado
-lista = ["18899270-6", "Felipe Rojas", "Avestruz", "no", "Avenida siempre viva 2350", 100, 800, 80000]
+lista = ["18899270-6", "Felipe Rojas", "Avestruz", "no", "Avenida siempre viva 2350", 100, "29/1/2022", 800, 80000]
 despachos [101] = lista      #segundo valor preasignado
-
 print ("Bienvenido, ingrese sus datos para iniciar sesion\n")
 while 0 == 0:
     user = input ("ingrese usuario: ")
