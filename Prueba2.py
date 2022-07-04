@@ -7,7 +7,6 @@ Ramo de Estructuras de datos y algoritmos
 Profesor David Villegas
 generación 2022 horario vespertino
 '''
-
 import os
 
 def limpiar ():      #funcion para limpiar pantalla, funciona en windows o linux
