@@ -69,14 +69,12 @@ def asignacion ():       #funcion para asignar valores distintos a los iniciales
     menu ()
 
 def creacion ():     #funcion para crear despachos
-
     def construir_fecha (d, m, a):
         d = str(d)
         m = str(m)
         a = str(a)
         fecha = d+"/"+m+"/"+a
         return fecha
-
     global ID       #se permite la modificacion de las variables ID, valores y despachos.
     global valores
     global despachos
@@ -184,6 +182,7 @@ def listar_despachos ():        #funcion para listar los despachos registrados
     print ("\nMenú listar despachos\n--------------\n1) Buscar por Fecha\n2) Buscar por Rut\n3) Buscar por Nombre o Razón Social\n4) Listar todo")
     navegacion = input ("otro)Volver\n>")
     if navegacion == "1" :      #Buscar por Fecha
+        limpiar()
         año = int (input ("ingrese el año a consultar\n"))
         limpiar ()
         mes = int(input ("ingrese mes a consultar\n"))
@@ -211,6 +210,7 @@ def listar_despachos ():        #funcion para listar los despachos registrados
         if contador == 0:
             print("No se ha encontrado")
     elif navegacion == "2" :        #Buscar por Rut
+        limpiar()
         busqueda = str (input ("ingrese el rut a consultar\n"))
         limpiar ()
         contador = 0
@@ -233,8 +233,8 @@ def listar_despachos ():        #funcion para listar los despachos registrados
         if contador == 0:
             print("No se ha encontrado")
     elif navegacion == "3" :        #Buscar por Nombre o Razón Social
+        limpiar()
         busqueda = str (input ("ingrese palabra a buscar en nombre o razón social (recuerde que se diferencia de mayúsculas y minúsculas)\n"))
-        limpiar ()
         contador = 0
         for i in despachos.keys ():      #navega a traves de los keys del diccionario
             lista = despachos [i]     #se sacan los valores del diccionario, para poder trabajar con la lista
@@ -255,6 +255,7 @@ def listar_despachos ():        #funcion para listar los despachos registrados
         if contador == 0:
             print("No se ha encontrado")
     elif navegacion == "4" :        #Listar Todo
+        limpiar()
         print ("Los despachos registrados son:\n")
         for i in despachos.keys ():      #navega a traves de los keys del diccionario
             consulta = int (i)
